@@ -35,13 +35,13 @@
             height="40"
             class="max-md:w-12"
         /></a>
-        <menu class="flex gap-12 text-sm max-md:hidden">
+        <ul class="flex gap-12 text-sm max-md:hidden">
           <li><a class="hover:text-soft-red" href="">Home</a></li>
           <li><a class="hover:text-soft-red" href="">New</a></li>
           <li><a class="hover:text-soft-red" href="">Popular</a></li>
           <li><a class="hover:text-soft-red" href="">Trending</a></li>
           <li><a class="hover:text-soft-red" href="">Categories</a></li>
-        </menu>
+        </ul>
         <button
           aria-label="Open navigation menu"
           class="cursor-pointer md:hidden"
@@ -50,9 +50,10 @@
         </button>
       </nav>
       <!-- * Mobile Nav -->
-      <div class="fixed inset-0 bg-black/20">
+      <div class="fixed inset-0 hidden bg-black/20">
         <nav
           class="bg-off-white fixed top-0 right-0 bottom-0 w-[70%] max-w-80 px-5 pt-7 md:hidden"
+          aria-expanded="false"
         >
           <button
             aria-label="Close navigation menu"
@@ -63,13 +64,13 @@
               alt="Menu Close Icon"
             />
           </button>
-          <menu class="flex flex-col gap-12 text-lg font-normal">
+          <ul class="flex flex-col gap-12 text-lg font-normal">
             <li><a class="hover:text-soft-red" href="">Home</a></li>
             <li><a class="hover:text-soft-red" href="">New</a></li>
             <li><a class="hover:text-soft-red" href="">Popular</a></li>
             <li><a class="hover:text-soft-red" href="">Trending</a></li>
             <li><a class="hover:text-soft-red" href="">Categories</a></li>
-          </menu>
+          </ul>
         </nav>
       </div>
     </header>
