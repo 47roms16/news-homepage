@@ -14,7 +14,7 @@ export default function initListeners() {
     toggleMobileNav(mobileNavWrap, navOpenBtn),
   );
 
-  document.addEventListener("click", (e: MouseEvent) =>
+  mobileNavWrap.addEventListener("click", (e: MouseEvent) =>
     closeNavOnOutside(e, mobileNavWrap, navOpenBtn),
   );
 }
@@ -25,7 +25,11 @@ function toggleMobileNav(
 ): void {
   mobileNavWrap.classList.toggle("hidden");
 
-  updateAriaAttributes(mobileNavWrap, navOpenBtn);
+  const isNavVisible = !mobileNavWrap.classList.contains("hidden");
+
+  document.body.classList.toggle("overflow-y-hidden", isNavVisible);
+
+  updateAriaAttributes(mobileNavWrap, navOpenBtn, isNavVisible);
 }
 
 function closeNavOnOutside(
@@ -46,9 +50,8 @@ function closeNavOnOutside(
 function updateAriaAttributes(
   mobileNavWrap: HTMLDivElement,
   navOpenBtn: HTMLButtonElement,
+  isNavVisible: boolean,
 ): void {
-  const isNavOpen = !mobileNavWrap.classList.contains("hidden");
-
-  mobileNavWrap.ariaHidden = isNavOpen ? "false" : "true";
-  navOpenBtn.ariaExpanded = isNavOpen ? "true" : "false";
+  mobileNavWrap.ariaHidden = isNavVisible ? "false" : "true";
+  navOpenBtn.ariaExpanded = isNavVisible ? "true" : "false";
 }
